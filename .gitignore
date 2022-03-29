@@ -1,0 +1,9 @@
+### Emacs ###
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/transient/
+/eshell/
+/elpa/
+/ac-comphist.dat
+/.lsp-session-v1
