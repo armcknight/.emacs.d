@@ -13,13 +13,5 @@
                '(:propertize (" " default-directory) mode-line dired-directory)))
 (add-hook 'find-file-hook 'add-mode-line-dirtrack)
 
-; tabs to 4 spaces
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
-
 ; theme
 (setq frame-background-mode 'dark)
-
-; show line numbers for source code files of various types
-(add-hook 'prog-mode-hook 'display-line-numbers-mode)
