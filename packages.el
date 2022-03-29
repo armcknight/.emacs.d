@@ -12,20 +12,25 @@
 ; install packages
 (setq
  package-selected-packages
- '(magit
+ '(dired-subtree ; dired minor mode to expand directory contents inline
+   ace-window ; window-chooser that assigns each window a numerical index
+
+   ; git modes
+   magit ; git major-mode
+   git-gutter ; git minor mode for buffers
+
+   ; autocompletion modes
    jedi
-   git-gutter
-   dired-subtree
-   switch-window
-   terraform-mode
-   markdown-mode
-   swift-mode
    lsp-mode
    lsp-ui
    company
    lsp-sourcekit
-   toml-mode
-   ace-window))
+
+   ; programming language modes
+   terraform-mode
+   markdown-mode
+   swift-mode
+   toml-mode))
 (package-refresh-contents)
 (package-install-selected-packages)
 
