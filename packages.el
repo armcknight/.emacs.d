@@ -54,4 +54,4 @@
 (add-hook 'python-mode-hook 'jedi:install-server)
 
 ; configure git-gutter
-(add-hook 'python-mode-hook 'git-gutter-mode)
+(add-hook 'prog-mode-hook 'git-gutter-mode)

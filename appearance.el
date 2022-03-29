@@ -22,4 +22,4 @@
 (setq frame-background-mode 'dark)
 
 ; show line numbers for source code files of various types
-(add-hook 'python-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
