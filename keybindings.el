@@ -4,9 +4,12 @@
 (global-set-key "\C-cc" 'view-in-columns)
 
 ; working with the emacs customization files
-(global-set-key "\C-ci" 'edit-init-file)
-(global-set-key "\C-cs" 'sync-current-configuration)
-(global-set-key "\C-cu" 'update-configuration)
+(global-set-key "\C-c\C-ii" 'edit-init-file)
+(global-set-key "\C-c\C-if" 'edit-functions)
+(global-set-key "\C-c\C-ik" 'edit-keybindings)
+(global-set-key "\C-c\C-ip" 'edit-packages)
+(global-set-key "\C-c\C-ia" 'edit-appearance)
+(global-set-key "\C-c\C-ie" 'edit-file-editing)
 
 ; ace-window and windmove keybindings
 (global-set-key "\M-o" 'ace-window)
