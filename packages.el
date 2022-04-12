@@ -13,6 +13,7 @@
 (setq
  package-selected-packages
  '(dired-subtree ; dired minor mode to expand directory contents inline
+   treemacs ; project navigators as left sidebars
    ace-window ; window-chooser that assigns each window a numerical index
 
    ; git modes
