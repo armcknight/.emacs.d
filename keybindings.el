@@ -17,3 +17,6 @@
 (global-set-key (kbd "\C-c <down>") 'windmove-down)
 (global-set-key (kbd "\C-c <left>") 'windmove-left)
 (global-set-key (kbd "\C-c <right>") 'windmove-right)
+
+; overrides
+(global-set-key (kbd "C-x C-b") 'ibuffer) ; previously buffer-menu
