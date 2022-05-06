@@ -47,7 +47,7 @@
   (progn
     (require 'lsp-sourcekit)
     (setq lsp-sourcekit-executable
-          "/Applications/Xcode12.4/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp")))
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp")))
 (add-hook 'swift-mode-hook (lambda () (lsp)))
 
 ; configure dired-subtree
