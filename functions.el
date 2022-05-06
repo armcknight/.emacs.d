@@ -53,3 +53,10 @@
   (balance-windows)
   (follow-mode t)
  )
+
+(defun open-github-pr (title message base_branch)
+  "Open a PR on GitHub in the current repo for the current branch."
+  (setq default_base_branch (shell-command-to-string "git remote show origin | sed -n '/HEAD branch/s/.*: //p'"))
+  (interactive (format "STitle: \nSMessage: \nSBase branch (default %s): " default_base_branch))
+  (shell-command (format "gh pr create --title %s --message %s --base %s" title message base_branch))
+)
