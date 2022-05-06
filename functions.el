@@ -53,3 +53,17 @@
   (balance-windows)
   (follow-mode t)
  )
+
+(defun open-github-pr (title body base_branch)
+  "Open a PR on GitHub in the current repo for the current branch."
+  (setq default_base_branch (string-trim (shell-command-to-string "git remote show origin | sed -n '/HEAD branch/s/.*: //p'")))
+(interactive (list
+                (read-string "Title: " nil nil (thing-at-point 'title))
+                (read-string "Body: " nil nil (thing-at-point 'body))
+                (read-string (format "Base branch (default %s): " default_base_branch)
+                             nil nil (thing-at-point 'base_branch))))
+  (if base_branch
+      (setq base_branch default_base_branch))
+  (setq pr_url (string-trim (shell-command-to-string (format "gh pr create --title \"%s\" --body \"%s\" --base %s" title body base_branch))))
+  (shell-command (format "open %s" pr_url))
+)
