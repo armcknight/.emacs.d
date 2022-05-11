@@ -67,3 +67,8 @@
   (setq pr_url (string-trim (shell-command-to-string (format "gh pr create --title \"%s\" --body \"%s\" --base %s" title body base_branch))))
   (shell-command (format "open %s" pr_url))
 )
+
+(defun open-repo-sentry-cocoa ()
+  (interactive)
+  (find-file "~/Code/organization/getsentry/repos/public/sentry-cocoa")
+)

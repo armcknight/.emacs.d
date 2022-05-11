@@ -4,6 +4,10 @@
 (global-set-key "\C-cc" 'view-in-columns)
 (global-set-key "\C-x\M-e" 'eval-buffer) ; in the same vain as C-x C-e is bound to eval-last-sexp
 
+; coding-specific
+(global-set-key "\C-c\C-o\C-s\C-c" 'open-repo-sentry-cocoa) ; hold CTRL and press c-o-s-c (custom-open-sentry-cocoa)
+(global-set-key "\C-c\C-p\C-o" 'open-github-pr) ; hold CTRL and press c-p-o (custom-pr-open)
+
 ; working with the emacs customization files
 (global-set-key "\C-c\C-ii" 'edit-init-file)
 (global-set-key "\C-c\C-if" 'edit-functions)
