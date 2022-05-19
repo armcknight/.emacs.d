@@ -31,9 +31,13 @@
    terraform-mode
    markdown-mode
    swift-mode
-   toml-mode))
+   toml-mode
+   yaml-mode))
 (package-refresh-contents)
 (package-install-selected-packages)
+
+; configure yaml-mode
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 ; configure company-mode
 (add-hook 'swift-mode-hook 'company-mode)
