@@ -23,5 +23,8 @@
 (global-set-key (kbd "\C-c <left>") 'windmove-left)
 (global-set-key (kbd "\C-c <right>") 'windmove-right)
 
+; git operations
+(global-set-key "\C-c\C-gp" 'open-github-pr-web)
+
 ; overrides
 (global-set-key (kbd "C-x C-b") 'ibuffer) ; previously buffer-menu

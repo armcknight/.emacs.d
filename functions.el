@@ -72,3 +72,8 @@
   (interactive)
   (find-file "~/Code/organization/getsentry/repos/public/sentry-cocoa")
 )
+
+(defun open-github-pr-web ()
+  (interactive)
+  (shell-command "gh pr create --web")
+)
