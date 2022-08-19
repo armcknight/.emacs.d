@@ -4,10 +4,6 @@
 (global-set-key "\C-cc" 'view-in-columns)
 (global-set-key "\C-x\M-e" 'eval-buffer) ; in the same vain as C-x C-e is bound to eval-last-sexp
 
-; coding-specific
-(global-set-key "\C-c\C-o\C-s\C-c" 'open-repo-sentry-cocoa) ; hold CTRL and press c-o-s-c (custom-open-sentry-cocoa)
-(global-set-key "\C-c\C-p\C-o" 'open-github-pr) ; hold CTRL and press c-p-o (custom-pr-open)
-
 ; working with the emacs customization files
 (global-set-key "\C-c\C-ii" 'edit-init-file)
 (global-set-key "\C-c\C-if" 'edit-functions)
@@ -23,8 +19,10 @@
 (global-set-key (kbd "\C-c <left>") 'windmove-left)
 (global-set-key (kbd "\C-c <right>") 'windmove-right)
 
-; git operations
-(global-set-key "\C-c\C-gp" 'open-github-pr-web)
+; git[hub] operations
+(global-set-key "\C-c\C-gp" 'find-github-pr-web)
+(global-set-key "\C-c\C-p\C-o" 'create-github-pr) ; hold CTRL and press c-p-o (custom-pr-open)
+(global-set-key "\C-c\C-g\C-n\C-p\C-n" 'get-next-pr-number) ; hold CTRL and press (custom-get-next-pr-number)
 
 ; overrides
 (global-set-key (kbd "C-x C-b") 'ibuffer) ; previously buffer-menu

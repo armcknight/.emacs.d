@@ -54,8 +54,16 @@
   (follow-mode t)
  )
 
-(defun open-github-pr (title body base_branch)
-  "Open a PR on GitHub in the current repo for the current branch."
+(defun get-next-pr-number()
+  "Get the number of the next PR that would be opened."
+  (interactive)
+  (setq command-result (string-trim (shell-command-to-string "gh pr list --json number --limit 1 --jq '.[] | .number'")))
+  (setq next_pr_number (number-to-string (+ 1 (string-to-number (car (last (split-string command-result "\n")))))))
+  (kill-new next_pr_number)
+)
+
+(defun create-github-pr (title body base_branch)
+  "Open a new PR on GitHub in the current repo for the current branch."
   (setq default_base_branch (string-trim (shell-command-to-string "git remote show origin | sed -n '/HEAD branch/s/.*: //p'")))
 (interactive (list
                 (read-string "Title: " nil nil (thing-at-point 'title))
@@ -68,12 +76,8 @@
   (shell-command (format "open %s" pr_url))
 )
 
-(defun open-repo-sentry-cocoa ()
-  (interactive)
-  (find-file "~/Code/organization/getsentry/repos/public/sentry-cocoa")
-)
-
-(defun open-github-pr-web ()
+(defun create-github-pr-web ()
+  "Open the GitHub PR creation webpage"
   (interactive)
   (shell-command "gh pr create --web")
 )
