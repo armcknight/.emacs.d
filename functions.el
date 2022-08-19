@@ -81,3 +81,9 @@
   (interactive)
   (shell-command "gh pr create --web")
 )
+
+(defun browse-github-repo()
+  "Open the current repo on GitHub in the browser."
+  (interactive)
+  (shell-command "gh browse")
+)
