@@ -12,9 +12,12 @@
 ; install packages
 (setq
  package-selected-packages
- '(dired-subtree ; dired minor mode to expand directory contents inline
-   treemacs ; project navigators as left sidebars
+ '(
+   ; emacs stuff
+   neotree
+   dired-subtree ; dired minor mode to expand directory contents inline
    ace-window ; window-chooser that assigns each window a numerical index
+   hydra ; keybinding helper
 
    ; git modes
    magit ; git major-mode
@@ -32,7 +35,12 @@
    markdown-mode
    swift-mode
    toml-mode
-   yaml-mode))
+   yaml-mode
+
+   ; elisp libraries
+   s ; string manipulation
+   f ; file/directory manipulation
+))
 (package-refresh-contents)
 (package-install-selected-packages)
 
