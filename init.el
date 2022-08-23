@@ -10,5 +10,7 @@
 (load-file custom-file)
 
 (setq initial-buffer-choice #'eshell)
-(magit-status)
+(if (file-directory-p ".git")
+  (magit-status)
+)
 (neotree-toggle)

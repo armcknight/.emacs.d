@@ -19,6 +19,10 @@
 (global-set-key (kbd "\C-c <left>") 'windmove-left)
 (global-set-key (kbd "\C-c <right>") 'windmove-right)
 
+; neotree
+(global-set-key "\C-c\C-z\C-f" 'neotree-find)
+(global-set-key "\C-c\C-z\C-r" 'neotree-refresh)
+
 ; git[hub] operations
 (global-set-key "\C-c\C-gp" 'find-github-pr-web)
 (global-set-key "\C-c\C-p\C-o" 'create-github-pr-web) ; hold CTRL and press c-p-o (custom-pr-open)

@@ -17,7 +17,6 @@
    neotree
    dired-subtree ; dired minor mode to expand directory contents inline
    ace-window ; window-chooser that assigns each window a numerical index
-   hydra ; keybinding helper
 
    ; git modes
    magit ; git major-mode
