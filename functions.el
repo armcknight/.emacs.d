@@ -81,3 +81,22 @@
   (interactive)
   (shell-command "gh browse")
 )
+
+(defun get-gitignore(args)
+  "Get the .gitignore contents for the platform arguments."
+  (interactive)
+  (setq result (string-trim (shell-command-to-string (format "curl --silent https://www.toptal.com/developers/gitignore/api/%s" args))))
+  (insert (string-join (cdr (split-string result "\n")) "\n"))
+)
+
+(defun gitignore-apple()
+  "Get the .gitignore contents helpful for development on Apple platforms."
+  (interactive)
+  (get-gitignore "objective-c,swiftpm,swift,swiftpackagemanager,xcode")
+)
+
+(defun gitignore-emacs()
+  "Get the .gitignore contents helpful for development with emacs."
+  (interactive)
+  (get-gitignore "emacs")
+)
