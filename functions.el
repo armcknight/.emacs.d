@@ -52,14 +52,22 @@
   )
   (balance-windows)
   (follow-mode t)
- )
+)
+
+(defun get-this-pr-number()
+  "Get the number of the current PR for the current branch."
+  (interactive)
+  (setq command-result (string-trim (shell-command-to-string "gh pr status --json number --jq '.currentBranch.number'")))
+  (setq next_pr_number (number-to-string (+ 1 (string-to-number (car (last (split-string command-result "\n")))))))
+  (insert (format " (#%s)" next_pr_number))
+)
 
 (defun get-next-pr-number()
   "Get the number of the next PR that would be opened."
   (interactive)
   (setq command-result (string-trim (shell-command-to-string "gh pr list --json number --limit 1 --jq '.[] | .number'")))
   (setq next_pr_number (number-to-string (+ 1 (string-to-number (car (last (split-string command-result "\n")))))))
-  (kill-new next_pr_number)
+  (insert (format " (#%s)" next_pr_number))
 )
 
 (defun create-github-pr-web ()
