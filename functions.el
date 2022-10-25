@@ -1,4 +1,6 @@
-; custom function definitions
+;
+; quick editing of config files
+;
 
 (defun edit-init-file-named (name)
   (interactive)
@@ -41,6 +43,27 @@
   (edit-init-file-named "file_editing.el")
 )
 
+;
+; text manipulation
+;
+
+(defun shell-command-on-region-to-string (start end command)
+  "shell-command-on-region-to-string = shell-command-on-region + shell-command-to-string"
+  (save-window-excursion
+    (with-output-to-string
+      (shell-command-on-region start end command standard-output))))
+
+(defun treeify (&optional start end)
+  "Take the highlighted region, provide it to `tree` and return the result."
+  (interactive "r")
+  (setq shell-result (shell-command-on-region-to-string start end "tree --fromfile --noreport"))
+  (car (last (split-string shell-result "\\.\n")))
+)
+
+;
+; Viewport manipulation
+;
+
 (defun view-in-columns (columns)
   "View the current buffer in the provided number of columns."
   (interactive "NNumber of columns: ")
@@ -53,6 +76,29 @@
   (balance-windows)
   (follow-mode t)
 )
+
+;
+; Git operations
+;
+
+(defun gwip()
+  (interactive)
+  (shell-command-to-string "git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(refname:short)\t%(committerdate:short)\t%(refname:short)' | column -t -s '\t'")
+)
+
+(defun gwip-tree()
+  (interactive)
+  (shell-command (format "echo '%s' | tree --fromfile --noreport --filesfirst" (gwip)))
+)
+
+(defun get-last-commit-hash-modifying-file(path)
+  (interactive)
+  (insert (string-trim (shell-command-to-string (format "git log --max-count=1 --format=%%H %s" path))))
+)
+
+;
+; GitHub operations
+;
 
 (defun get-this-pr-number()
   "Get the number of the current PR for the current branch."
@@ -70,6 +116,10 @@
   (insert (format " (#%s)" next_pr_number))
 )
 
+;
+; GitHub web operations
+;
+
 (defun create-github-pr-web ()
   "Open the GitHub PR creation webpage"
   (interactive)
@@ -81,6 +131,10 @@
   (interactive)
   (shell-command "gh browse")
 )
+
+;
+; .gitignore generation
+;
 
 (defun get-gitignore(args)
   "Get the .gitignore contents for the platform arguments."
