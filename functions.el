@@ -154,3 +154,43 @@
   (interactive)
   (get-gitignore "emacs")
 )
+
+;
+; Automation
+;
+
+(defun make-init()
+  (interactive)
+  "Run `make init` in the current directory."
+  (shell-command "make init")
+)
+
+(defun make-build()
+  (interactive)
+  "Run `make build` in the current directory."
+  (shell-command "make build")
+)
+
+(defun make-test()
+  (interactive)
+  "Run `make test` in the current directory."
+  (shell-command "make test")
+)
+
+(defun make-deploy()
+  (interactive)
+  "Run `make deploy` in the current directory."
+  (shell-command "make deploy")
+)
+
+(defun make-serve()
+  (interactive)
+  "Run `make serve` in the current directory."
+  (shell-command "make serve")
+)
+
+(defun make-endserve()
+  (interactive)
+  "Run `make endserve` in the current directory."
+  (shell-command "make endserve")
+)
