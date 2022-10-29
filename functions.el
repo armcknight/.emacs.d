@@ -194,3 +194,9 @@
   "Run `make endserve` in the current directory."
   (shell-command "make endserve")
 )
+
+(defun open-makefile()
+  (interactive)
+  "Open the Makefile in the current directory for editing."
+  (find-file (format "%s/Makefile" (magit-toplevel)))
+)
