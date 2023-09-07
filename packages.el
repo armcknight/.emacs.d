@@ -35,6 +35,7 @@
    swift-mode
    toml-mode
    yaml-mode
+   go-mode
 
    ; elisp libraries
    s ; string manipulation
