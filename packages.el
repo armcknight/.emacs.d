@@ -44,6 +44,19 @@
 (package-refresh-contents)
 (package-install-selected-packages)
 
+; configure magit
+; the following settings were found at https://github.com/philc/emacs-config/blob/master/.emacs.d/elisp/magit-config.el
+;; Have Magit open buffers in the current window, rather than a new split.
+;; https://github.com/magit/magit/issues/2541
+(setq magit-display-buffer-function (lambda (buffer)
+                                      (display-buffer buffer '(display-buffer-same-window))))
+;; When committing, don't have Magit show the diff of what's changed. This feature is annoying because it
+;; creates two buffers. I've already reviewed the staged changes prior to activating commit mode and don't
+;; need to see the changes again.
+(setq magit-commit-show-diff nil)
+; done with settings found at https://github.com/philc/emacs-config/blob/master/.emacs.d/elisp/magit-config.el
+(setq magit-diff-refine-hunk 'all)
+
 ; configure yaml-mode
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 (add-hook 'yaml-mode-hook
