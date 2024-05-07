@@ -15,3 +15,8 @@
 
 ; theme
 (setq frame-background-mode 'dark)
+
+; if we're in a repo, start on magit. otherwise, start in dired
+(if (file-directory-p ".git")
+  (setq initial-buffer-choice 'magit-status)
+)

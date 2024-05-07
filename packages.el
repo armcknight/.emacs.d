@@ -14,7 +14,6 @@
  package-selected-packages
  '(
    ; emacs stuff
-   neotree
    dired-subtree ; dired minor mode to expand directory contents inline
    ace-window ; window-chooser that assigns each window a numerical index
 

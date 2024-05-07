@@ -15,9 +15,3 @@
 ; use different file for Custom injections instead of this one
 (setq custom-file "~/.emacs.d/custom.el")
 (load-file custom-file)
-
-(setq initial-buffer-choice #'eshell)
-(if (file-directory-p ".git")
-  (magit-status)
-)
-(neotree-toggle)
