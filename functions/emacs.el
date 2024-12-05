@@ -19,11 +19,20 @@
 
 (defun switch-to-scratch-buffer(scratch-buffer-number)
   (interactive "NScratch buffer number:")
-  ; TODO: implement
-)
+  (switch-to-buffer (format "scratch%d" scratch-buffer-number)))
 
 (defun show-all-custom-keybindings()
-  "Show a child frame, temporary buffer or momentary-string-display in the bottom right of the current frame that lists all the custom keybindings from ~/.emacs.d/keybindings.el"
+  "Show a list of all custom keybindings in a special buffer."
   (interactive)
-  ; TODO: implement
-)
+  (let ((temp-buf-name "*Custom Keybindings*")
+        (keybindings (with-temp-buffer
+                       (insert-file-contents "~/.emacs.d/keybindings.el")
+                       (buffer-string))))
+    ;; Create a buffer `temp-buf-name' and insert the keybindings
+    (get-buffer-create temp-buf-name)
+    (with-current-buffer temp-buf-name
+      (insert keybindings)
+      (special-mode)) ; Set its major mode to `special-mode'
+    ;; Switch to the `temp-buf-name' buffer
+    (switch-to-buffer-other-window temp-buf-name)
+    (message "All custom keybindings displayed in %s" temp-buf-name)))
