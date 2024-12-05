@@ -5,7 +5,6 @@
 (defun scaffold-new-elisp-function(name)
   "Insert a stub for a new function with TODOs."
   (interactive "SName:")
-  ; TODO: implement
   (insert (format "(defun %s()
   \"TODO: Write documentation string.\"
   (interactive)
