@@ -11,8 +11,10 @@
     (insert (format "---
 title: %s
 date: %s
-categories: []
-tags: []
+author: Andrew McKnight
+layout: post
+tags:
+abstract:
 ---
 " title formatted-date))
 )
