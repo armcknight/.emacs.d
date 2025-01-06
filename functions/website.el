@@ -42,5 +42,11 @@ abstract:
     ;; Switch to the `temp-buf-name' buffer
     (switch-to-buffer-other-window temp-buf-name)
     (message "All tags displayed in %s" temp-buf-name))
+)
 
+(defun finalize-draft ()
+  "Given a file marked in dired while browsing the blog/_drafts listing, promote it to blog/_posts for processing and publishing."
+  (interactive)
+  (setq marked-file (dired-get-marked-files))
+  (shell-command (format "mv %s %s" (car marked-file) (replace-regexp-in-string "_drafts" "_posts" (car marked-file))))
 )
