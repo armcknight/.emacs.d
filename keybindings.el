@@ -4,8 +4,8 @@
 (global-set-key "\C-cc" 'view-in-columns)
 (global-set-key "\C-x\M-e" 'eval-buffer) ; in the same vain as C-x C-e is bound to eval-last-sexp
 ; for going to scratch buffers
-(global-set-key "\C-c\C-s" 'new-scratch-buffer)
-(global-set-key "\C-c\C-s\C-n" 'switch-to-scratch-buffer)
+(global-set-key "\C-c\C-s\C-n" 'new-scratch-buffer)
+(global-set-key "\C-c\C-s\C-s" 'switch-to-scratch-buffer)
 
 ; working with the emacs customization files
 (global-set-key "\C-c\C-ii" 'edit-init-file)
