@@ -9,6 +9,7 @@
 (load-file "~/.emacs.d/functions/git.el")
 (load-file "~/.emacs.d/functions/makefile.el")
 (load-file "~/.emacs.d/functions/sentry_repos.el")
+(load-file "~/.emacs.d/functions/personal_repos.el")
 (load-file "~/.emacs.d/functions/snippets.el")
 (load-file "~/.emacs.d/functions/text_transformation.el")
 
